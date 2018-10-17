@@ -24,7 +24,7 @@ namespace MyProject
             Connect();
         }
         public  async void Connect() {
-            string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+            string stringConnection =Form1.connection;
             sqlconnection = new SqlConnection(stringConnection);
             await sqlconnection.OpenAsync();
         }

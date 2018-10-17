@@ -37,7 +37,7 @@ namespace MyProject
             if (  Form1.pas==oldpassword   && textBox2.TextLength >= 1 )
             {
                 SqlConnection connection;
-                string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                string stringConnection = Form1.connection;
                 connection = new SqlConnection(stringConnection);
                 await connection.OpenAsync();
                 SqlCommand command = new SqlCommand("UPDATE [TablePassword] SET [password]=@pass WHERE [Id]=1 ", connection);

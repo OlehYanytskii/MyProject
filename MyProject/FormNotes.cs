@@ -35,7 +35,7 @@ namespace MyProject//тут гамнокод
             try
             {
 
-                string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                string stringConnection = Form1.connection;
                 SqlConnection sqlconnection = new SqlConnection(stringConnection);
                 await sqlconnection.OpenAsync();
                 string select = String.Format($"SELECT Notes,DateOfCreation FROM [TableNotes] WHERE '{textBox1.Text}'=NameNotes");
@@ -65,7 +65,7 @@ namespace MyProject//тут гамнокод
             if (richTextBox1.Text.Length != 0 && textBox1.Text.Length !=0)
             {
                 SqlConnection connection;
-                string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                string stringConnection = Form1.connection;
                 connection = new SqlConnection(stringConnection);
                 await connection.OpenAsync();
                 SqlCommand command = new SqlCommand("Insert INTO [TableNotes] (Notes,DateOfCreation,NameNotes) VALUES(@Text,@Date,@Name)", connection);
@@ -89,7 +89,7 @@ namespace MyProject//тут гамнокод
 
             try
             {
-                string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                string stringConnection = Form1.connection;
                 SqlConnection sqlconnection = new SqlConnection(stringConnection);
                 await sqlconnection.OpenAsync();
                 string select = String.Format($"SELECT NameNotes FROM [TableNotes] ");
@@ -126,7 +126,7 @@ namespace MyProject//тут гамнокод
                 if (textBox1.Text.Length != 0 && richTextBox1.Text == "delete" || richTextBox1.Text == "Delete" || richTextBox1.Text == "DELETE")
                 {
                     SqlConnection connection;
-                    string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                    string stringConnection = Form1.connection;
                     connection = new SqlConnection(stringConnection);
                     await connection.OpenAsync();
                     SqlCommand command = new SqlCommand($"DELETE FROM [TableNotes] WHERE '{textBox1.Text}'=NameNotes", connection);
@@ -156,7 +156,7 @@ namespace MyProject//тут гамнокод
             try
             {
 
-                string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                string stringConnection = Form1.connection;
                 SqlConnection sqlconnection = new SqlConnection(stringConnection);
                 await sqlconnection.OpenAsync();
                 string select = String.Format($"SELECT Notes,DateOfCreation FROM [TableNotes] WHERE '{textBox1.Text}'=NameNotes");
@@ -196,7 +196,7 @@ namespace MyProject//тут гамнокод
                 if (textBox1.Text.Length != 0 && richTextBox1.Text == "delete" || richTextBox1.Text == "Delete" || richTextBox1.Text == "DELETE")
                 {
                     SqlConnection connection;
-                    string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                    string stringConnection = Form1.connection;
                     connection = new SqlConnection(stringConnection);
                     await connection.OpenAsync();
                     SqlCommand command = new SqlCommand($"DELETE FROM [TableNotes] WHERE '{textBox1.Text}'=NameNotes", connection);
@@ -221,7 +221,7 @@ namespace MyProject//тут гамнокод
             if (richTextBox1.Text.Length != 0 && textBox1.Text.Length != 0)
             {
                 SqlConnection connection;
-                string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                string stringConnection = Form1.connection;
                 connection = new SqlConnection(stringConnection);
                 await connection.OpenAsync();
                 SqlCommand command = new SqlCommand("Insert INTO [TableNotes] (Notes,DateOfCreation,NameNotes) VALUES(@Text,@Date,@Name)", connection);

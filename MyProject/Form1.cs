@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MyProject
 {
@@ -16,6 +17,13 @@ namespace MyProject
     public  partial class Form1 : Form
     {
         static string  password;
+        public  string GetPathToDataBase()
+        {
+            string s = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + @"\Database1.mdf; Integrated Security = True";
+            MessageBox.Show(s);
+            return s;
+        }
+
         public  string Password
         {
             get
@@ -26,7 +34,7 @@ namespace MyProject
                     SqlDataReader sqlDataReader = null;
                     try
                     {
-                        string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                        string stringConnection = connection;
                         SqlConnection sqlconnection = new SqlConnection(stringConnection);
                         await sqlconnection.OpenAsync();
                         string select = String.Format($"SELECT password FROM [TablePassword] WHERE Id=1");
@@ -58,11 +66,12 @@ namespace MyProject
         }
        public static string pas;
         MainForm mf = new MainForm();
+      public static string connection;
         public Form1()
         {
             InitializeComponent();
             pas = Password;
-           
+            connection= GetPathToDataBase();
           
         }
         private void textBox1_TextChanged(object sender, EventArgs e)

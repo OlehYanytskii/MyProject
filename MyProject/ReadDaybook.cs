@@ -31,7 +31,7 @@ namespace MyProject//тут гамнокод
             SqlDataReader sqlDataReader = null;
             try
             {
-                string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                string stringConnection = Form1.connection;
                 SqlConnection sqlconnection = new SqlConnection(stringConnection);
                 await sqlconnection.OpenAsync();
                 string select = String.Format($"SELECT SomeText,TimeOfCreation FROM [TableText] WHERE CONVERT  (varchar,DataOfCreation)='{path}'");
@@ -68,7 +68,7 @@ namespace MyProject//тут гамнокод
                 SqlDataReader sqlDataReader = null;
                 try
                 {
-                    string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                    string stringConnection = Form1.connection;
                     SqlConnection sqlconnection = new SqlConnection(stringConnection);
                     await sqlconnection.OpenAsync();
                     string select = String.Format($"SELECT SomeText,TimeOfCreation FROM [TableText] WHERE  Id= (SELECT Id-1 FROM [TableText] WHERE CONVERT  (varchar,DataOfCreation)='{path}') ");
@@ -108,7 +108,7 @@ namespace MyProject//тут гамнокод
                 SqlDataReader sqlDataReader = null;
                 try
                 {
-                    string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                    string stringConnection = Form1.connection;
                     SqlConnection sqlconnection = new SqlConnection(stringConnection);
                     await sqlconnection.OpenAsync();
                     // SqlCommand comand = new SqlCommand("Select Id From [Table] WHERE", sqlconnection);
@@ -145,7 +145,7 @@ namespace MyProject//тут гамнокод
             SqlDataReader sqlDataReader = null;
             try
             {
-                string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                string stringConnection = Form1.connection;
                 SqlConnection sqlconnection = new SqlConnection(stringConnection);
                 await sqlconnection.OpenAsync();
                 string select = String.Format($"SELECT SomeText,TimeOfCreation FROM [TableText] WHERE CONVERT  (varchar,DataOfCreation)='{path}'");

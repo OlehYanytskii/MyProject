@@ -24,7 +24,7 @@ namespace MyProject
             SqlDataReader sqlDataReader=null;
             try
             {               
-                string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+                string stringConnection = Form1.connection;
                 SqlConnection sqlconnection = new SqlConnection(stringConnection);
                 await sqlconnection.OpenAsync();
                 string select = String.Format($"SELECT Goals FROM [TableGoals] WHERE [id]=1 ");
@@ -59,7 +59,7 @@ namespace MyProject
         private async void button1_Click(object sender, EventArgs e)
         {
             SqlConnection connection;
-            string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+            string stringConnection =Form1.connection;
             connection = new SqlConnection(stringConnection);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand("UPDATE [TableGoals] SET [Goals]=@Goals WHERE [Id]=1 ", connection);           
@@ -77,7 +77,7 @@ namespace MyProject
         private async void label2_Click(object sender, EventArgs e)
         {
             SqlConnection connection;
-            string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+            string stringConnection =Form1.connection;
             connection = new SqlConnection(stringConnection);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand("UPDATE [TableGoals] SET [Goals]=@Goals WHERE [Id]=1 ", connection);

@@ -53,7 +53,7 @@ namespace MyProject
         private async void button1_Click_1(object sender, EventArgs e)
         {
             SqlConnection connection;
-            string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+            string stringConnection = Form1.connection;
             connection = new SqlConnection(stringConnection);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand("UPDATE [TableToDoList] SET [ToDoList]=@list WHERE [Id]=1 ", connection);
@@ -74,7 +74,7 @@ namespace MyProject
         private async void label2_Click(object sender, EventArgs e)
         {
             SqlConnection connection;
-            string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
+            string stringConnection = Form1.connection;
             connection = new SqlConnection(stringConnection);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand("UPDATE [TableToDoList] SET [ToDoList]=@list WHERE [Id]=1 ", connection);
