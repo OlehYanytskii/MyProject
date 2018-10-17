@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyProject.Properties {
+namespace Daybook.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MyProject.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MyProject.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Daybook.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -67,16 +67,6 @@ namespace MyProject.Properties {
             get {
                 object obj = ResourceManager.GetObject("Icon1", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Image1 {
-            get {
-                object obj = ResourceManager.GetObject("Image1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

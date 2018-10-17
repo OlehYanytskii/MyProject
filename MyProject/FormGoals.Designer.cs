@@ -1,6 +1,6 @@
 ﻿namespace MyProject
 {
-    partial class ReadDaybook
+    partial class FormGoals
     {
         /// <summary>
         /// Required designer variable.
@@ -28,65 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReadDaybook));
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGoals));
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // richTextBox1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(51, 23);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(215, 22);
-            this.dateTimePicker1.TabIndex = 0;
-          
+            this.richTextBox1.Enabled = false;
             this.richTextBox1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(12, 52);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.richTextBox1.Location = new System.Drawing.Point(22, 4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1401, 748);
-            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Size = new System.Drawing.Size(931, 866);
+            this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "";
-          //  this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(354, 16);
+            this.label1.Location = new System.Drawing.Point(959, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 34);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Показати";
+            this.label1.Size = new System.Drawing.Size(146, 34);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Редагувати";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // ReadDaybook
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(959, 105);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 34);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Зберегти";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // FormGoals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1358, 681);
+            this.ClientSize = new System.Drawing.Size(1494, 830);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "ReadDaybook";
-            this.Text = "ReadDaybook";
-           // this.Load += new System.EventHandler(this.ReadDaybook_Load);
+            this.Name = "FormGoals";
+            this.Text = "FormGoals";
+          //  this.Load += new System.EventHandler(this.FormGoals_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

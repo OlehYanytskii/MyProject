@@ -15,48 +15,31 @@ namespace MyProject
 {
     public partial class DaybookForm : Form
     {
-        SqlConnection sqlconnection;
+      public  SqlConnection sqlconnection;
         ReadDaybook rdb = new ReadDaybook();
-        public DaybookForm()
+        public  DaybookForm()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            Connect();
+        }
+        public  async void Connect() {
             string stringConnection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Oleg\Documents\MyProject\MyProject\Database1.mdf;Integrated Security=True";
             sqlconnection = new SqlConnection(stringConnection);
-
+            await sqlconnection.OpenAsync();
         }
-       public static string ToCompileShortTimeString(string time)
-        {
-            string time1="";
-            for (int i = 0; i < time.Length; i++)
-                if (time[i] == ':')
-                    time1 += '.';
-                else time1 += time[i];
-            return time1;
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {   if(Directory.Exists(@"C:\\Users\\Oleg\\Documents\\MyProject\\MyProjectText\\щоденник\\" + System.DateTime.Now.ToShortDateString()))
+       
+        private async void button1_Click(object sender, EventArgs e)
+        {           
+            if (richTextBox1.Text.Length != 0)
             {
-                
-                StreamWriter writer = new StreamWriter($"C:\\Users\\Oleg\\Documents\\MyProject\\MyProjectText\\щоденник\\{DateTime.Now.ToShortDateString()}\\" +  MainForm.ToCompileShortTimeString(System.DateTime.Now.ToLongTimeString()+".txt"));
-                writer.WriteLine(DateTime.Now);
-                writer.Write(richTextBox1.Text);
-                writer.Close();
-                richTextBox1.Clear();
-                
-            }
-            else
-            {
-                Directory.CreateDirectory(@"C:\\Users\\Oleg\\Documents\\MyProject\\MyProjectText\\щоденник\" + System.DateTime.Now.ToShortDateString());
-                StreamWriter writer = new StreamWriter(($"C:\\Users\\Oleg\\Documents\\MyProject\\MyProjectText\\щоденник\\{DateTime.Now.ToShortDateString()}\\" + MainForm.ToCompileShortTimeString(System.DateTime.Now.ToLongTimeString() + ".txt")));
-                writer.WriteLine(System.DateTime.Now);
-                writer.Write(richTextBox1.Text);
-                writer.Close();
+                SqlCommand command = new SqlCommand("Insert INTO [TABLETEXT] (SomeText,DataOfCreation,TimeOfCreation) VALUES(@Text,@Date,@Time)", sqlconnection);
+                command.Parameters.AddWithValue("Text", richTextBox1.Text);
+                command.Parameters.AddWithValue("Time", System.DateTime.Now.ToShortTimeString());
+                command.Parameters.AddWithValue("Date", System.DateTime.Now.ToShortDateString());
+                await command.ExecuteNonQueryAsync();
                 richTextBox1.Clear();
             }
-            
-
-                
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -64,26 +47,19 @@ namespace MyProject
             rdb.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-           
-            if (Directory.Exists(@"C:\\Users\\Oleg\\Documents\\MyProject\\MyProjectText\\щоденник\\" + dateTimePicker1.Value.ToShortDateString() ))
+            rdb.ShowDialog();
+        }
+                private async void label2_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.Text.Length != 0)
             {
-
-                StreamWriter writer = new StreamWriter($"C:\\Users\\Oleg\\Documents\\MyProject\\MyProjectText\\щоденник\\{dateTimePicker1.Value.ToShortDateString()}\\" + MainForm.ToCompileShortTimeString(System.DateTime.Now.ToLongTimeString() + ".txt"));
-                writer.WriteLine(DateTime.Now);
-                writer.Write(richTextBox1.Text);
-                writer.Close();
-                richTextBox1.Clear();
-
-            }
-            else
-            {
-                Directory.CreateDirectory(@"C:\\Users\\Oleg\\Documents\\MyProject\\MyProjectText\\щоденник\" + dateTimePicker1.Value.ToShortDateString());
-                StreamWriter writer = new StreamWriter(($"C:\\Users\\Oleg\\Documents\\MyProject\\MyProjectText\\щоденник\\{dateTimePicker1.Value.ToShortDateString()}\\" + MainForm.ToCompileShortTimeString(System.DateTime.Now.ToLongTimeString() + ".txt")));
-                writer.WriteLine(System.DateTime.Now);
-                writer.Write(richTextBox1.Text);
-                writer.Close();
+                SqlCommand command = new SqlCommand("Insert INTO [TABLETEXT] (SomeText,DataOfCreation,TimeOfCreation) VALUES(@Text,@Date,@Time)", sqlconnection);
+                command.Parameters.AddWithValue("Text", richTextBox1.Text);
+                command.Parameters.AddWithValue("Time", System.DateTime.Now.ToShortTimeString());
+                command.Parameters.AddWithValue("Date", System.DateTime.Now.ToShortDateString());
+                await command.ExecuteNonQueryAsync();
                 richTextBox1.Clear();
             }
         }

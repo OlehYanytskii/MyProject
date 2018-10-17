@@ -8,50 +8,47 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
 namespace MyProject
 {
-   
     public partial class MainForm : Form
     {
-        public static string ToCompileShortTimeString(string time)
-        {
-            string time1 = "";
-            for (int i = 0; i < time.Length; i++)
-                if (time[i] == ':')
-                    time1 += ' ';
-                else time1 += time[i];
-            return time1;
-        }
-
-        DaybookForm db = new DaybookForm();
         public MainForm()
         {
             InitializeComponent();
-this.WindowState = FormWindowState.Maximized;
-
+            this.WindowState = FormWindowState.Maximized;
+        }                    
+                private void button10_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+            new ToDoListForm().ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-
+            new FormGoals().ShowDialog();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
-
+            new FormNotes().ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
-
+            new DaybookForm().ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
-            db.ShowDialog();
-            
-            
+            Dispose();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+             new Settings().ShowDialog();
         }
     }
 }
